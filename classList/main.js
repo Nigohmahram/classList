@@ -303,9 +303,17 @@ wrapper.append(btn);
 //--1
 // console.log(typeof String(4));
 //--2
-console.log('samar' + 21);
+// console.log('samar' + 21);
+// const youtubeChanel = 10
+// console.log('youtube.com/channel/' + youtubeChanel);
 
-
+// to number
+//--1
+// console.log(typeof Number('4'));
+//--2
+// console.log(typeof + '5');
+//--3
+console.log(typeof parseInt('15'));
 
 
 
