@@ -373,5 +373,107 @@ wrapper.append(btn);
 
 
 
+//Reklama blocklarini olib tashlash
+// const elPromoAdv = document.querySelector('.promo__adv')
+// const elsImg = elPromoAdv.querySelectorAll('img')
+// elsImg.forEach((item) => {
+     // item.remove()
+// });
+// elsImg[0].remove()
+// elsImg[1].remove()
+// elsImg[2].remove()
+// elsImg[3].remove()
 
+//Drama so'zini comediyaga o'zgartirish
+//  const elPromoGenre = document.querySelector('.promo__genre')
+//  elPromoGenre.textContent = 'Comediya'
+
+
+ //Backgraund imgni o'zgartirish
+//  const elPromoBj = document.querySelector('.promo__bg')
+//  elPromoBj.style.backgraundImage = "url('./img/1.jpg')";
+
+ //Ustoz bilan qilganda
+const elsAdv = document.querySelectorAll('.promo__adv img'),
+      elWrapper = document.querySelector('.promo__bg'),
+      elGenre = document.querySelector('.promo__genre'),
+      elSeriesList = document.querySelector('.promo__interactive-list')
+
+      const seriusDB = {
+          serius: [
+               'Omar',
+               'The Final Legacy',
+               'Ertugrul',
+               'Magnificent Century',
+               'The Great Seljuks: Guardians...',
+          ],
+
+
+      };
+
+      //Reklamani uchirish
+      elsAdv.forEach((item) => {
+     item.remove()
+});
+     //Dramani so'zini Comediya so'ziga o'zgartirish kerak
+      elGenre.textContent = 'Comediya'
+
+      //backgraundni boshqa rasmga o'zgartirish
+      elWrapper.style.backgroundImage = "url('img/1.jpg')"
+
+      // film ro'yxatini js yordamida quyish kerak
+      seriusDB.serius.forEach((item, idx) => {
+          elSeriesList.innerHTML +=
+          `<li class="promo__interactive-item">${idx + 1} ${item}<div class="delete"></div></li>`
+      })
+
+
+      //buttonlar knopkalar bilan ishlash
+      const elBlock = document.querySelectorAll('.block')
+
+      //knopka bosishning birinchi yo'li
+     //  elBlock[0].onclick = function () {
+     //      alert('Click from js')
+     //  };
+
+     // 2-- doimi foydalaniladigan yo'llari
+     // elBlock[0].addEventListener('click', () => {
+     //      alert('click')
+     // })
+
+     // elBlock[0].addEventListener('mouseenter', (event) => {
+          // alert('Hover')
+          // console.log(event.target);
+          // event.target.remove()
+     // })
+
+     // let i = 0
+     // const addElement = (event) => {
+     //      i++
+     //      if (i === 3) {
+     //           elBlock[0].removeEventListener('click', addElement)
+     //      }
+     //      console.log(i);
+     // }
+     // elBlock[0].addEventListener('click', addElement)
+
+
+     // button ga o'xshagan All kodlarni olishda forEach yordamida interatsiya qilib olish kerak boladi  shundada har bir knopkaga massiv berib utirish shart bolmaydi pastda misol korsatilgan MISOL
+
+     elBlock.forEach((item) => {
+          item.addEventListener('click', () => {
+               console.log(1);
+          })
+     })
+
+
+
+
+
+     // const deleteElement = (event) => {
+     //      event.target.remove()
+     // }
+     // elBlock[0].addEventListener('click', deleteElement)
+
+     // elBlock[0].removeEventListener('click', deleteElement)
 });
