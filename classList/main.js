@@ -330,23 +330,23 @@ wrapper.append(btn);
 //      console.log(item);
 // });
 
-const elBox = document.querySelector('#box')
+// const elBox = document.querySelector('#box')
 
 // console.log(elBox);
-elBox.style.backgroundColor = 'red'
-elBox.style.height = '100px'
-elBox.style.width  = '100px'
+// elBox.style.backgroundColor = 'red'
+// elBox.style.height = '100px'
+// elBox.style.width  = '100px'
 
-const elApp = document.querySelector('.app')
-const elsButtons = elApp.querySelectorAll('button')
-elsButtons[0].style.width = '1000px'
+// const elApp = document.querySelector('.app')
+// const elsButtons = elApp.querySelectorAll('button')
+// elsButtons[0].style.width = '1000px'
 
-const elsCircile = document.querySelectorAll('.circle')
-elsCircile[0].style = "background-color :green; width: 100px; height: 100px;"
-elsCircile[1].style.backgroundColor = "aqua"
-elsCircile[2].style.backgroundColor = "blue"
+// const elsCircile = document.querySelectorAll('.circle')
+// elsCircile[0].style = "background-color :green; width: 100px; height: 100px;"
+// elsCircile[1].style.backgroundColor = "aqua"
+// elsCircile[2].style.backgroundColor = "blue"
 
-const elsHeart = elApp.querySelectorAll('.heart')
+// const elsHeart = elApp.querySelectorAll('.heart')
 
 // for ( let i = 0; i < elsHeart.length; i++) {
 //      elsHeart[i].style.backgroundColor = 'aqua';
@@ -355,6 +355,21 @@ const elsHeart = elApp.querySelectorAll('.heart')
 // elsHeart.forEach((item) => {
 //      item.style.backgroundColor = 'aqua';
 // });
+
+// const elsbtn = document.createElement('button')
+// const text = document.createTextNode('I am text')
+// document.body.append(elsbtn);
+
+// const elCircleWrapper = document.querySelector('.circle__wrapper')
+// const myCircle = document.createElement('div')
+// myCircle.classList.add('circle')
+// elCircleWrapper.append(myCircle)
+// elCircleWrapper.(myCircle)
+// elsCircile[0].before(myCircle)
+// elCircleWrapper.append(myCircle)
+// elsCircile[1].remove()
+// myCircle.innerHTML = '<pre>bugun</pre>'
+// myCircle.textContent = 'E'
 
 
 
