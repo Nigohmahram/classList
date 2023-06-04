@@ -313,7 +313,49 @@ wrapper.append(btn);
 //--2
 // console.log(typeof + '5');
 //--3
-console.log(typeof parseInt('15'));
+// console.log(typeof parseInt('15'));
+
+// const box = document.getElementById('box')
+// console.log(box);
+
+// const buttons = document.getElementsByTagName('button')[1]
+// // console.log(buttons);
+
+// const circles = document.getElementsByClassName('circle')[0]
+// // console.log(circles);
+
+// const elsHeats = document.querySelectorAll('.heart')[0];
+// console.log(elsHeats);
+// elsHeats.forEach((item) => {
+//      console.log(item);
+// });
+
+const elBox = document.querySelector('#box')
+
+// console.log(elBox);
+elBox.style.backgroundColor = 'red'
+elBox.style.height = '100px'
+elBox.style.width  = '100px'
+
+const elApp = document.querySelector('.app')
+const elsButtons = elApp.querySelectorAll('button')
+elsButtons[0].style.width = '1000px'
+
+const elsCircile = document.querySelectorAll('.circle')
+elsCircile[0].style = "background-color :green; width: 100px; height: 100px;"
+elsCircile[1].style.backgroundColor = "aqua"
+elsCircile[2].style.backgroundColor = "blue"
+
+const elsHeart = elApp.querySelectorAll('.heart')
+
+// for ( let i = 0; i < elsHeart.length; i++) {
+//      elsHeart[i].style.backgroundColor = 'aqua';
+// }
+
+// elsHeart.forEach((item) => {
+//      item.style.backgroundColor = 'aqua';
+// });
+
 
 
 
