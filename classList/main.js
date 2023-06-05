@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-const btns = document.querySelectorAll('button');
-const wrapper = document.querySelector('.btn-block');
+// const btns = document.querySelectorAll('button');
+// const wrapper = document.querySelector('.btn-block');
 
 // console.log(btns[0].classList.length);
 // console.log(btns[0].classList.item(1));
@@ -14,23 +14,23 @@ const wrapper = document.querySelector('.btn-block');
 //      console.log('Bor ekan');
 // }
 
-btns[0].addEventListener('click', () => {
-     if (!btns[1].classList.contains('red')) {
-          btns[1].classList.add('red');
-     }else (btns[1].classList.remove('red'));
-     btns[2].classList.toggle('red');
-     console.log('click');
-});
+// btns[0].addEventListener('click', () => {
+//      if (!btns[1].classList.contains('red')) {
+//           btns[1].classList.add('red');
+//      }else (btns[1].classList.remove('red'));
+//      btns[2].classList.toggle('red');
+//      console.log('click');
+// });
 
 // wrapper.addEventListener('click', () => {
 //      console.log('Hello babay'); // Hamma joyni bossa consoleda click chiqadi
 // });
 
-wrapper.addEventListener('click', (event) => {
-     if(event.target && event.target.classList.contains('red')) {//bu yerda ona classdan foydalanib qaysi elementda 'red' class list bo'lsa shu ishlasun deyilvotti [5 element]
-          console.log('Butto click');
-     }
-});
+// wrapper.addEventListener('click', (event) => {
+//      if(event.target && event.target.classList.contains('red')) {//bu yerda ona classdan foydalanib qaysi elementda 'red' class list bo'lsa shu ishlasun deyilvotti [5 element]
+//           console.log('Butto click');
+//      }
+// });
 
 // btns.forEach((item) => {
 //      item.addEventListener('click', () =>{//bu barcha knopkalarni bosilishini taminlaydi
@@ -40,9 +40,9 @@ wrapper.addEventListener('click', (event) => {
 
 // btns[5].classList.add('gul');//class list qo'shish
 
-const btn = document.createElement('button');
-btn.classList.add('red');// bu yerda yangi btn nomli button class list qo'shilvotti va yuqoridadi [5 element]ga qo'shib qo'yilvotti agarda 'red' class o'rniga boshqa class bolganida bunday bu element bosilmagan bo'lar edi
-wrapper.append(btn);
+// const btn = document.createElement('button');
+// btn.classList.add('red');// bu yerda yangi btn nomli button class list qo'shilvotti va yuqoridadi [5 element]ga qo'shib qo'yilvotti agarda 'red' class o'rniga boshqa class bolganida bunday bu element bosilmagan bo'lar edi
+// wrapper.append(btn);
 
 
 // const place = confirm("Are you here?")
@@ -397,7 +397,11 @@ wrapper.append(btn);
 const elsAdv = document.querySelectorAll('.promo__adv img'),
       elWrapper = document.querySelector('.promo__bg'),
       elGenre = document.querySelector('.promo__genre'),
-      elSeriesList = document.querySelector('.promo__interactive-list')
+      elSeriesList = document.querySelector('.promo__interactive-list'),
+      elAddForm = document.querySelector('.add'),
+      elInputVal = elAddForm.querySelector('.adding__input'),
+      elCheckbox = document.querySelector('input')
+
 
       const seriusDB = {
           serius: [
@@ -406,30 +410,61 @@ const elsAdv = document.querySelectorAll('.promo__adv img'),
                'Ertugrul',
                'Magnificent Century',
                'The Great Seljuks: Guardians...',
-          ],
+          ]
+      }
+      // Submit knopkani refresh holatini tohtatish
+      elAddForm.addEventListener('submit', (event) => {
+          event.preventDefault()
+
+          const newSerius = elInputVal.value
+          const favorite = elCheckbox.checked
+
+          seriusDB.serius.push(newSerius)
+          sortArr(seriusDB.serius)
+          createSeriusList(seriusDB.serius, elSeriesList)
+
+          // malumot kirishi tugallangandan keyin oldingi bo'sh holatiga qaytadi
+          event.target.reset()
+      })
+
+            // film ro'yxatini js yordamida quyish kerak
+      function createSeriusList(series, parent) {
+          parent.innerHTML = ''
+          series.forEach((item, idx) => {
+               parent.innerHTML +=
+               `<li class="promo__interactive-item">${idx + 1} ${item}<div class="delete"></div></li>`
+           })
+          }
 
 
-      };
-
-      //Reklamani uchirish
+          //bitta fnksionga olib quyish
+          const deleteAdv = (arr)  => {
+               //Reklamani uchirish
       elsAdv.forEach((item) => {
-     item.remove()
-});
-     //Dramani so'zini Comediya so'ziga o'zgartirish kerak
+          item.remove()
+     })
+          }
+
+
+          const makeChanges = () => {
+               //Dramani so'zini Comediya so'ziga o'zgartirish kerak
       elGenre.textContent = 'Comediya'
 
       //backgraundni boshqa rasmga o'zgartirish
       elWrapper.style.backgroundImage = "url('img/1.jpg')"
+          }
 
-      // film ro'yxatini js yordamida quyish kerak
-      seriusDB.serius.forEach((item, idx) => {
-          elSeriesList.innerHTML +=
-          `<li class="promo__interactive-item">${idx + 1} ${item}<div class="delete"></div></li>`
-      })
+          const sortArr = (arr) => {
+               arr.sort()
+          }
 
-
+          //Alfavit bo'yicha ishga tushirish
+          sortArr(seriusDB.serius)
+      createSeriusList(seriusDB.serius, elSeriesList)
+      deleteAdv(elsAdv)
+      makeChanges()
       //buttonlar knopkalar bilan ishlash
-      const elBlock = document.querySelectorAll('.block')
+     //  const elBlock = document.querySelectorAll('.block')
 
       //knopka bosishning birinchi yo'li
      //  elBlock[0].onclick = function () {
@@ -460,11 +495,11 @@ const elsAdv = document.querySelectorAll('.promo__adv img'),
 
      // button ga o'xshagan All kodlarni olishda forEach yordamida interatsiya qilib olish kerak boladi  shundada har bir knopkaga massiv berib utirish shart bolmaydi pastda misol korsatilgan MISOL
 
-     elBlock.forEach((item) => {
-          item.addEventListener('click', () => {
-               console.log(1);
-          })
-     })
+     // elBlock.forEach((item) => {
+     //      item.addEventListener('click', () => {
+     //           console.log(1);
+     //      })
+     // })
 
 
 
