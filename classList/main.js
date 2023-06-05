@@ -400,7 +400,7 @@ const elsAdv = document.querySelectorAll('.promo__adv img'),
       elSeriesList = document.querySelector('.promo__interactive-list'),
       elAddForm = document.querySelector('.add'),
       elInputVal = elAddForm.querySelector('.adding__input'),
-      elCheckbox = document.querySelector('input')
+      elCheckbox = document.querySelector("[type='checkbox']")
 
 
       const seriusDB = {
@@ -416,12 +416,24 @@ const elsAdv = document.querySelectorAll('.promo__adv img'),
       elAddForm.addEventListener('submit', (event) => {
           event.preventDefault()
 
-          const newSerius = elInputVal.value
+          let newSerius = elInputVal.value
           const favorite = elCheckbox.checked
 
-          seriusDB.serius.push(newSerius)
-          sortArr(seriusDB.serius)
-          createSeriusList(seriusDB.serius, elSeriesList)
+          if (newSerius) {
+               // 18ta harfdan kop bolsa uchta nuqta quyib beradi
+               if (newSerius.length > 18 ) {
+                    newSerius = `${newSerius.substring(0, 18)}...`
+               }
+               if (favorite) {
+                    console.log("Sevimli serialingiz qo'shildi")
+               }
+               console.log(favorite);
+               seriusDB.serius.push(newSerius)
+               sortArr(seriusDB.serius)
+
+               createSeriusList(seriusDB.serius, elSeriesList)
+          }
+
 
           // malumot kirishi tugallangandan keyin oldingi bo'sh holatiga qaytadi
           event.target.reset()
