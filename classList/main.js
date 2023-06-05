@@ -401,6 +401,7 @@ const elsAdv = document.querySelectorAll('.promo__adv img'),
       elAddForm = document.querySelector('.add'),
       elInputVal = elAddForm.querySelector('.adding__input'),
       elCheckbox = document.querySelector("[type='checkbox']")
+     //  elsDelete = document.querySelectorAll('.delete')
 
 
       const seriusDB = {
@@ -427,7 +428,6 @@ const elsAdv = document.querySelectorAll('.promo__adv img'),
                if (favorite) {
                     console.log("Sevimli serialingiz qo'shildi")
                }
-               console.log(favorite);
                seriusDB.serius.push(newSerius)
                sortArr(seriusDB.serius)
 
@@ -442,15 +442,24 @@ const elsAdv = document.querySelectorAll('.promo__adv img'),
             // film ro'yxatini js yordamida quyish kerak
       function createSeriusList(series, parent) {
           parent.innerHTML = ''
+          sortArr(series)
           series.forEach((item, idx) => {
                parent.innerHTML +=
                `<li class="promo__interactive-item">${idx + 1} ${item}<div class="delete"></div></li>`
+           })
+           document.querySelectorAll('.delete').forEach((trash, idx) => {
+               trash.addEventListener('click', () => {
+                    trash.parentElement.remove()
+                    seriusDB.serius.splice(idx, 1)
+
+                    createSeriusList(seriusDB.serius, elSeriesList)
+               })
            })
           }
 
 
           //bitta fnksionga olib quyish
-          const deleteAdv = (arr)  => {
+          const deleteAdv = ()  => {
                //Reklamani uchirish
       elsAdv.forEach((item) => {
           item.remove()
