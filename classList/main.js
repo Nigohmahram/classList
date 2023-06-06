@@ -1,22 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-// const btns = document.querySelectorAll('button');
-// const wrapper = document.querySelector('.btn-block');
+const btns = document.querySelectorAll('button');
+const wrapper = document.querySelector('.btn-block');
+// console.log(btns[1].classList);
+// btns[2].classList.add('blue')
+// btns[1].classList.remove('blue')
+// btns[3].classList.toggle('blue')
+// btns[1].classList.add('red')
 
-// console.log(btns[0].classList.length);
-// console.log(btns[0].classList.item(1));
-
-// btns[3].classList.add('blue', 'some', 'gul'); //class qo'shadi vergul qo'yib hohlagancha class qo'shsa bo'ladi
-// btns[1].classList.remove('blue');// uchirib tashlaydi
-// btns[1].classList.toggle('blue');// bor bo'lsa uchiradi  yo'q qiladi yo'q bo'lsa qo'shadi
-
-// if (btns[0].classList.contains('blue')) {//divni ichida shunday class bor ekanini tekshirib beradi
-//      console.log('Bor ekan');
+// if (btns[1].classList.contains('red')) {
+//      console.log('yeap bugun havo qanday');
 // }
 
-// btns[0].addEventListener('click', () => {
-//      if (!btns[1].classList.contains('red')) {
-//           btns[1].classList.add('red');
+// btns[1].addEventListener('click', () => {
+//      // if(!btns[2].classList.contains('red')) {
+//      //      btns[2].classList.add('red')
+//      // if(btns[2].classList.contains('red')) {
+//      //      console.log('ok bro sen amallading');
+//      // }
+//      // }
+//      btns[2].classList.toggle('red')
+//      if(btns[2].classList.contains('red')) {
+//           console.log('pk bro sen amallading lekin biroz qiynalding');
+//      }
+// })
+// btns[1].addEventListener('click', () => {
+//      btns[2].classList.toggle('red')
+// })
+// wrapper.addEventListener('click', (event) => {
+//      if (event.target && event.target.classList.contains('red')) {
+//           console.log('btn click');
+//      }
+// })
+
+
+// btns.forEach((item) => {
+//      item.addEventListener('click', () => {
+//           console.log('click');
+//      })
+// })
+// const btn = document.createElement('button')
+// btn.classList.add('red')
+// wrapper.append(btn)
+
+
+console.log(btns[0].classList.length);
+console.log(btns[0].classList.item(1));
+
+btns[3].classList.add('blue', 'some', 'gul'); //class qo'shadi vergul qo'yib hohlagancha class qo'shsa bo'ladi
+btns[1].classList.remove('blue');// uchirib tashlaydi
+btns[1].classList.toggle('blue');// bor bo'lsa uchiradi  yo'q qiladi yo'q bo'lsa qo'shadi
+
+if (btns[0].classList.contains('blue')) {//divni ichida shunday class bor ekanini tekshirib beradi
+     console.log('Bor ekan');
+}
+
+// btns[1].addEventListener('click', () => {
+//      if (!btns[0].classList.contains('red')) {
+//           btns[5].classList.add('red');
 //      }else (btns[1].classList.remove('red'));
 //      btns[2].classList.toggle('red');
 //      console.log('click');
